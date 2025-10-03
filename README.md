@@ -1,4 +1,4 @@
-# Xoby saca la actu
+# Xobii saca la actcube
 xobydev para tu wii y gamecube (posiblemente mas), basado en [este ejemplo de devkitppc](https://github.com/devkitPro/wii-examples/tree/master/graphics/gx/gxSprites), hecho por shitpost
 <img width="1641" height="1000" alt="image" src="https://github.com/user-attachments/assets/228146a6-3f18-45d1-82a3-19947b7f2921" />
 
