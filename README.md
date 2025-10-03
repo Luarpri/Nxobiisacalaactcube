@@ -6,4 +6,4 @@ xobydev para tu wii , gamecube y switch (posiblemente mas), basado en [los ejemp
 1. Instala devkitpro
 2. abre una ventana de comandos y escribe `make`, se deberia compilar en cuestion de segundos, o si tienes un ordenador tostadora, horas
 3. si quieres compilar la version de gamecube, ejecuta una ventana de comandos dentro de `gamecubeport` y ejecuta `make`
-4. si quieres compilar la version de switch, ejecuta una ventana de comandos dentro de `nintendoswitchport`, instala `SDL2_mixer` y ejecuta `make`
+4. si quieres compilar la version de switch, ejecuta una ventana de comandos dentro de `nintendoswitchport`, instala `SDL2_mixer`, `SDL2_image` y  `SDL2_ttf`, luego ejecuta `make`
