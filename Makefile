@@ -2,13 +2,17 @@
 # Clear the implicit built in rules
 #---------------------------------------------------------------------------------
 .SUFFIXES:
+#---------------------------------------------------------------------------------
+# prevent deletion of implicit targets
+#---------------------------------------------------------------------------------
 .SECONDARY:
 #---------------------------------------------------------------------------------
+
 ifeq ($(strip $(DEVKITPPC)),)
 $(error "Please set DEVKITPPC in your environment. export DEVKITPPC=<path to>devkitPPC")
 endif
 
-include $(DEVKITPPC)/gamecube_rules
+include $(DEVKITPPC)/wii_rules
 
 #---------------------------------------------------------------------------------
 # TARGET is the name of the output
@@ -20,7 +24,7 @@ TARGET		:=	$(notdir $(CURDIR))
 BUILD		:=	build
 SOURCES		:=	source
 DATA		:=
-TEXTURES	:=	textures 
+TEXTURES	:=	textures
 INCLUDES	:=
 
 #---------------------------------------------------------------------------------
@@ -35,7 +39,7 @@ LDFLAGS	=	-g $(MACHDEP) -Wl,-Map,$(notdir $@).map
 #---------------------------------------------------------------------------------
 # any extra libraries we wish to link with the project
 #---------------------------------------------------------------------------------
-LIBS	:=	-logc -lm
+LIBS	:=	-lwiiuse -lbte -logc -lm
 
 #---------------------------------------------------------------------------------
 # list of directories containing libraries, this must be the top level containing
@@ -55,6 +59,7 @@ export OUTPUT	:=	$(CURDIR)/$(TARGET)
 export VPATH	:=	$(foreach dir,$(SOURCES),$(CURDIR)/$(dir)) \
 					$(foreach dir,$(DATA),$(CURDIR)/$(dir)) \
 					$(foreach dir,$(TEXTURES),$(CURDIR)/$(dir))
+					
 
 export DEPSDIR	:=	$(CURDIR)/$(BUILD)
 
@@ -110,6 +115,9 @@ $(BUILD):
 clean:
 	@echo clean ...
 	@rm -fr $(BUILD) $(OUTPUT).elf $(OUTPUT).dol
+#---------------------------------------------------------------------------------
+run:
+	wiiload $(OUTPUT).dol
 
 #---------------------------------------------------------------------------------
 else
@@ -125,10 +133,10 @@ $(OFILES_SOURCES) : $(HFILES)
 #---------------------------------------------------------------------------------
 # This rule links in binary data with the .bin extension
 #---------------------------------------------------------------------------------
-%.bin.o	%_bin.h :	%.bin
+%.bin.o	:	%.bin
 #---------------------------------------------------------------------------------
 	@echo $(notdir $<)
-	@$(bin2o)
+	$(bin2o)
 
 #---------------------------------------------------------------------------------
 %.tpl.o	%_tpl.h :	%.tpl
