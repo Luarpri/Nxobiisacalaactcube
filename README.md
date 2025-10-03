@@ -1,4 +1,4 @@
-# NXobii saca la actcube
+# Xoby saca la actu
 xobydev para tu wii ,gamecube y switch (posiblemente mas), basado en [los ejemplos de devkitpro](https://github.com/devkitPro/), hecho por shitpost
 <img width="1641" height="1000" alt="image" src="https://github.com/user-attachments/assets/228146a6-3f18-45d1-82a3-19947b7f2921" />
 
