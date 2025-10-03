@@ -4,4 +4,4 @@ xobydev para tu wii, basado en [este ejemplo de devkitppc](https://github.com/de
 
 ## Compilar
 1. Instala devkitpro
-2. abre una ventana de comandos y escribe `make`, se deberia compilar en cuestion de minutos, o si tienes un ordenador tostadora, horas
+2. abre una ventana de comandos y escribe `make`, se deberia compilar en cuestion de segundos, o si tienes un ordenador tostadora, horas
